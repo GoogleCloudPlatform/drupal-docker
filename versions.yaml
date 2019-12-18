@@ -20,11 +20,8 @@ _variables:
     version: '8.7.8'
     md5: 'f281eb14d8aabf0c3e78dd519ca4b640'
   composer: &composer
-    # Package doesn't contain SHA384
-    # I use version instead of it
-    # TODO: Change it when the issue is resolved
-    # https://github.com/GoogleCloudPlatform/runtimes-common/issues/798
-    version: 'a5c698ffe4b8e849a443b120cd5ba38043260d5c4023dbf93e1558871f1f07f58274fc6f4c93bcfd858c6bd0775cd8d1'
+    version: '1.9.1'
+    gpg: '1f210b9037fcf82670d75892dfc44400f13fe9ada7af9e787f93e50e3b764111'
   tags: &tags
   - '8.7.8-debian9'
   - '8.7.8'
