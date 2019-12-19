@@ -17,16 +17,16 @@
 _variables:
   from: &from gcr.io/cloud-marketplace-ops/php7-apache:7.3-debian9
   drupal: &drupal
-    version: '8.7.8'
-    md5: 'f281eb14d8aabf0c3e78dd519ca4b640'
+    version: '8.8.1'
+    md5: '0e0af2652e6ad4da27c0f7bf35c5e1e1'
   composer: &composer
     version: '1.9.1'
     gpg: '1f210b9037fcf82670d75892dfc44400f13fe9ada7af9e787f93e50e3b764111'
   tags: &tags
-  - '8.7.8-debian9'
-  - '8.7.8'
-  - '8.7-debian9'
-  - '8.7'
+  - '8.8.1-debian9'
+  - '8.8.1'
+  - '8.8-debian9'
+  - '8.8'
   - '8-debian9'
   - '8'
   - 'latest'
