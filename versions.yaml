@@ -1,4 +1,4 @@
-# Copyright 2019 Google LLC
+# Copyright 2020 Google LLC
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,31 +14,26 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-_variables:
-  from: &from gcr.io/cloud-marketplace-ops/php7-apache:7.3-debian9
-  drupal: &drupal
-    version: '8.8.1'
-    md5: '0e0af2652e6ad4da27c0f7bf35c5e1e1'
-  composer: &composer
-    version: '1.9.1'
-    gpg: '1f210b9037fcf82670d75892dfc44400f13fe9ada7af9e787f93e50e3b764111'
-  tags: &tags
-  - '8.8.1-debian9'
-  - '8.8.1'
-  - '8.8-debian9'
-  - '8.8'
-  - '8-debian9'
-  - '8'
-  - 'latest'
 
+cloudbuild:
+  enable_parallel: false
 versions:
+- dir: 8/php7/debian9/apache
+  from: gcr.io/cloud-marketplace-ops/php7-apache:7.3-debian9
+  packages:
+    composer:
+      gpg: 1f210b9037fcf82670d75892dfc44400f13fe9ada7af9e787f93e50e3b764111
+      version: 1.9.1
+    drupal:
+      md5: ad3ba707ce67e14590a55f6b313d3bec
+      version: 8.8.2
+  repo: drupal8-php7-apache
+  tags:
+  - 8.8.2-debian9
+  - 8.8-debian9
+  - 8-debian9
+  - 8.8.2
+  - '8.8'
+  - '8'
+  - latest
 
-  # Drupal 8 with PHP 7.3-apache on Debian 9
-  - dir: '8/php7/debian9/apache'
-    repo: 'drupal8-php7-apache'
-    templateSubDir: debian9
-    tags: *tags
-    from: *from
-    packages:
-      drupal: *drupal
-      composer: *composer
