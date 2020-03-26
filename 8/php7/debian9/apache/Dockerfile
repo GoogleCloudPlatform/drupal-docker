@@ -55,9 +55,9 @@ RUN a2enmod rewrite expires
 WORKDIR /usr/src/drupal
 
 # https://www.drupal.org/node/3060/release
-ENV DRUPAL_VERSION 8.8.3
-ENV C2D_RELEASE 8.8.3
-ENV DRUPAL_MD5 f524df904f9d4ba5586eed8203e1c58c
+ENV DRUPAL_VERSION 8.8.4
+ENV C2D_RELEASE 8.8.4
+ENV DRUPAL_MD5 3d08163b296ed947c4337992d439094a
 
 # Download package and extract to web volume
 RUN set -eux; \
@@ -75,7 +75,7 @@ RUN set -eux; \
 	curl -o composer.phar "https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar"; \
 	echo "${COMPOSER_SHA256} composer.phar" | sha256sum -c - ; \
 	chmod +x composer.phar; \
-	./composer.phar require drush/drush; \
+	php -d memory_limit=2G ./composer.phar require drush/drush; \
 	cp LICENSE.txt vendor/drush/drush/src/; \
 	rm -f composer.phar; \
 	rm -rf /var/lib/apt/lists/*
