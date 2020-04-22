@@ -19,7 +19,7 @@ cloudbuild:
   enable_parallel: false
 versions:
 - dir: 8/php7/debian9/apache
-  from: marketplace.gcr.io/google/php7-apache2:7.3
+  from: gcr.io/cloud-marketplace-ops/php7-apache:7.3-debian9
   packages:
     composer:
       gpg: 1f210b9037fcf82670d75892dfc44400f13fe9ada7af9e787f93e50e3b764111
